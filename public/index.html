@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test</title>
+</head>
+
+<body onload="getData()">
+    <div id="data-panel"></div>
+    <div>
+        <button onclick="getData()">Refresh</button>
+    </div>
+    <script>
+        async function getData() {
+            let data = await fetch(`http://localhost:3000/api`);
+            data = await data.json();
+            document.getElementById('data-panel').innerHTML = JSON.stringify(data);
+        }
+    </script>
+</body>
+
+</html>
